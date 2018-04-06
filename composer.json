@@ -1,0 +1,25 @@
+{
+    "name": "designmynight/uk-public-holidays",
+    "description": "PHP package to easily determine whether a given date is a public holiday in the UK",
+    "keywords": ["php","uk","public","holidays"],
+    "homepage": "https://github.com/designmynight/laravel-elasticsearch",
+    "require": {
+        "php": ">=7.1",
+        "nesbot/carbon": "^1.22"
+    },
+    "authors": [
+        {
+            "name": "DesignMyNight team",
+            "homepage": "https://www.designmynight.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "DesignMyNight\\UKPublicHolidays\\": "src/"
+        }
+    },
+    "config": {
+        "preferred-install": "dist"
+    },
+    "license" : "MIT"
+}
