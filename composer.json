@@ -7,6 +7,9 @@
         "php": ">=7.1",
         "nesbot/carbon": "^1.22"
     },
+    "require-dev": {
+        "phpunit/phpunit": "6.*"
+    },
     "authors": [
         {
             "name": "DesignMyNight team",
@@ -16,6 +19,11 @@
     "autoload": {
         "psr-4": {
             "DesignMyNight\\UKPublicHolidays\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "DesignMyNight\\UkPublicHolidays\\Tests\\": "tests/"
         }
     },
     "config": {
