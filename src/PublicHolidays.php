@@ -26,7 +26,7 @@ abstract class PublicHolidays
             return $holiday['date'] === $carbon->format('Y-m-d');
         });
 
-        return $filtered[0] ?? null;
+        return array_values($filtered)[0] ?? null;
     }
 
     public static function region(string $region): array
