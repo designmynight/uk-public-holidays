@@ -7,6 +7,7 @@ Public holiday data is from [gov.uk](https://www.gov.uk/bank-holidays.json)
 ## Example
 
 ```php
+Date::isFirstWorkingDayOfTheMonth(Carbon::today());
 Date::isHoliday(Carbon::today());
 Date::isWorkingDay(Carbon::today())
 Date::nextWorkingDay();

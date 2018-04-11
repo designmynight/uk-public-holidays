@@ -6,6 +6,19 @@ use Carbon\Carbon;
 
 abstract class Date
 {
+    public static function isFirstWorkingDayOfTheMonth(Carbon $carbon): bool
+    {
+        $date = $carbon->copy()->startOfMonth();
+
+        for ($date; $date->lte($carbon); $date->addDay()) {
+            if (static::isWorkingDay($date)) {
+                return $date->format('Y-m-d') === $carbon->format('Y-m-d');
+            }
+        }
+
+        return false;
+    }
+
     public static function isHoliday(Carbon $carbon): bool
     {
         return PublicHolidays::getDate($carbon) !== null;
