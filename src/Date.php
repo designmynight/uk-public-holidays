@@ -6,7 +6,11 @@ use Carbon\Carbon;
 
 abstract class Date
 {
-    public static function isFirstWorkingDayOfTheMonth(Carbon $carbon): bool
+    /**
+     * @param Carbon $carbon
+     * @return bool
+     */
+    public static function isFirstWorkingDayOfTheMonth(Carbon $carbon)
     {
         $date = $carbon->copy()->startOfMonth();
 
@@ -19,17 +23,28 @@ abstract class Date
         return false;
     }
 
-    public static function isHoliday(Carbon $carbon): bool
+    /**
+     * @param Carbon $carbon
+     * @return bool
+     */
+    public static function isHoliday(Carbon $carbon)
     {
         return PublicHolidays::getDate($carbon) !== null;
     }
 
-    public static function isWorkingDay(Carbon $carbon): bool
+    /**
+     * @param Carbon $carbon
+     * @return bool
+     */
+    public static function isWorkingDay(Carbon $carbon)
     {
         return $carbon->isWeekday() && static::isHoliday($carbon) === false;
     }
 
-    public static function nextWorkingDay(): Carbon
+    /**
+     * @return Carbon
+     */
+    public static function nextWorkingDay()
     {
         $date = Carbon::today();
 
@@ -40,7 +55,10 @@ abstract class Date
         return $date;
     }
 
-    public static function previousWorkingDay(): Carbon
+    /**
+     * @return Carbon
+     */
+    public static function previousWorkingDay()
     {
         $date = Carbon::today();
 

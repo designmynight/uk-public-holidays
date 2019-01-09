@@ -9,7 +9,10 @@ abstract class PublicHolidays
     protected static $holidays = null;
     protected static $region = 'england-and-wales';
 
-    public static function all(): array
+    /**
+     * @return array
+     */
+    public static function all()
     {
         if (static::$holidays === null) {
             $json = file_get_contents('https://www.gov.uk/bank-holidays.json');
@@ -20,7 +23,11 @@ abstract class PublicHolidays
         return static::$holidays;
     }
 
-    public static function getDate(Carbon $carbon): ?array
+    /**
+     * @param Carbon $carbon
+     * @return array|null
+     */
+    public static function getDate(Carbon $carbon)
     {
         $filtered = array_filter(PublicHolidays::region(self::$region), function($holiday) use($carbon) {
             return $holiday['date'] === $carbon->format('Y-m-d');
@@ -29,12 +36,19 @@ abstract class PublicHolidays
         return array_values($filtered)[0] ?? null;
     }
 
-    public static function region(string $region): array
+    /**
+     * @param string $region
+     * @return array
+     */
+    public static function region(string $region)
     {
         return static::all()[$region]['events'];
     }
 
-    public static function setRegion(string $region): void
+    /**
+     * @param string $region
+     */
+    public static function setRegion(string $region)
     {
         static::$region = $region;
     }
