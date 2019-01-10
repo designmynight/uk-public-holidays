@@ -8,7 +8,7 @@
         "nesbot/carbon": "^1.22"
     },
     "require-dev": {
-        "phpunit/phpunit": "6.*"
+        "phpunit/phpunit": "5.*"
     },
     "authors": [
         {
