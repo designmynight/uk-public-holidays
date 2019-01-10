@@ -1,0 +1,11 @@
+FROM designmynight/dockerfiles:php7.1-cli-alpine
+
+WORKDIR /opt
+
+COPY --from=composer:1.6 /usr/bin/composer /usr/bin/composer
+
+RUN /usr/bin/composer global require hirak/prestissimo
+
+COPY composer.json /opt
+COPY composer.lock /opt
+

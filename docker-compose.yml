@@ -1,0 +1,17 @@
+version: '3'
+services:
+  composer:
+    build:
+      context: .
+      dockerfile: Dockerfile.composer
+    command: composer install -o
+    volumes:
+      - .:/opt
+    working_dir: /opt
+  test:
+    build:
+      context: .
+    command: phpdbg -qrr ./vendor/bin/phpunit
+    volumes:
+      - .:/opt
+    working_dir: /opt
