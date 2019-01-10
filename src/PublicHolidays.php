@@ -33,14 +33,14 @@ abstract class PublicHolidays
             return $holiday['date'] === $carbon->format('Y-m-d');
         });
 
-        return array_values($filtered)[0] ?? null;
+        return reset($filtered) ?: null;
     }
 
     /**
      * @param string $region
      * @return array
      */
-    public static function region(string $region)
+    public static function region($region)
     {
         return static::all()[$region]['events'];
     }
@@ -48,7 +48,7 @@ abstract class PublicHolidays
     /**
      * @param string $region
      */
-    public static function setRegion(string $region)
+    public static function setRegion($region)
     {
         static::$region = $region;
     }
