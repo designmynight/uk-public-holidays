@@ -13,7 +13,7 @@ class PublicHolidaysTest extends TestCase
         $date = Carbon::parse('2018-04-02');
         $holiday = PublicHolidays::getDate($date);
 
-        $this->assertInternalType('array', $holiday);
+        $this->assertIsArray($holiday);
         $this->assertEquals('Easter Monday', $holiday['title']);
     }
 }
